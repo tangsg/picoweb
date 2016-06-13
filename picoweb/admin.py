@@ -1,3 +1,5 @@
 from django.contrib import admin
+from picoweb.models import Product, Photo
 
-# Register your models here.
+admin.site.register(Product)
+admin.site.register(Photo)
