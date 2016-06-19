@@ -162,20 +162,20 @@
 
 						<!-- portfolio items start -->
 						<div class="isotope-container row grid-space-20">
-            {% for product in products_list %}
-              {% ifequal product.vin_min 6 %}
-              	<div class="col-sm-6 col-md-3 isotope-item carpc">
-              {% else %}
-                {% ifequal product.vin_max 24 %}
-                	 <div class="col-sm-6 col-md-3 isotope-item vinmax24v">
-                {% else %}
-                   {% ifequal product.vin_max 28 %}
-                   		<div class="col-sm-6 col-md-3 isotope-item vinmax28v">
-                   {% else %}
-                   		<div class="col-sm-6 col-md-3 isotope-item vin12v">
-                   {% endifequal %}
-                {% endifequal %}
-              {% endifequal %}
+                        {% for product in products_list %}
+                          {% ifequal product.vin_min 6 %}
+                            <div class="col-sm-6 col-md-3 isotope-item carpc">
+                          {% else %}
+                            {% ifequal product.vin_max 24 %}
+                                 <div class="col-sm-6 col-md-3 isotope-item vinmax24v">
+                            {% else %}
+                               {% ifequal product.vin_max 28 %}
+                                    <div class="col-sm-6 col-md-3 isotope-item vinmax28v">
+                               {% else %}
+                                    <div class="col-sm-6 col-md-3 isotope-item vin12v">
+                               {% endifequal %}
+                            {% endifequal %}
+                          {% endifequal %}
 								<div class="image-box">
 									<div class="overlay-container">
 										{% for photo in product.photo_set.all %}
@@ -186,18 +186,18 @@
 										<a class="overlay" data-toggle="modal" data-target="#{{ product.model }}">
 											<i class="fa fa-search-plus"></i>
 											{% ifequal product.vin_min 6 %}
-              					<span>12V Battery (CarPC)</span>
-             				  {% else %}
-				                {% ifequal product.vin_max 24 %}
-				                	 <span>16-24V Input</span>
-				                {% else %}
-				                   {% ifequal product.vin_max 28 %}
-				                   		<span>16-28V Input</span>
-				                   {% else %}
-				                   	  <span>12V Input</span>
-				                   {% endifequal %}
-				                {% endifequal %}
-                      {% endifequal %}
+                                                <span>12V Battery (CarPC)</span>
+                                              {% else %}
+                                                {% ifequal product.vin_max 24 %}
+                                                     <span>16-24V Input</span>
+                                                {% else %}
+                                                   {% ifequal product.vin_max 28 %}
+                                                        <span>16-28V Input</span>
+                                                   {% else %}
+                                                      <span>12V Input</span>
+                                                   {% endifequal %}
+                                                {% endifequal %}
+                                            {% endifequal %}
 										</a>
 									</div>
 									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#{{ product.model }}">{{ product.model }}</a>
@@ -214,23 +214,22 @@
 												<h3>Features</h3>
 												<div class="row">
 													<div class="col-md-6">
-														<p>{{ forloop.counter }} : {{ product.model|linebreaks }}</p>
-													</div>
-													<div class="col-md-6">
-														{% for photo in product.photo_set.all %}
-											         {% ifequal photo.title 'cover' %}
-											  	         <img src={{ photo.image.url }} alt="">
-											         {% endifequal %}
-										        {% endfor %}
+														<p>{{ product.features|linebreaks }}</p>
+														{% for download in product.download_set.all %}
+                                                              <p><a href="{{ download.file.url }}" target="_blank"><i class="fa fa-file-pdf-o"></i> {{ download.title | capfirst }} </a></p>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        {% for photo in product.photo_set.all %}
+                                                             {% ifequal photo.title 'cover' %}
+                                                                 <img src={{ photo.image.url }} alt="">
+                                                             {% endifequal %}
+                                                        {% endfor %}
 													</div>
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default">
-													<i class="fa fa-spinner fa-lg fa-spin"></i> 
-														Datasheet
-													<i class="fa fa-download fa-lg"></i>
-												</button>
+												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
@@ -611,12 +610,12 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="footer-content">
-								<p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel nam magnam natus tempora cumque, aliquam deleniti voluptatibus voluptas. Repellat vel, et itaque commodi iste ab, laudantium voluptas deserunt nobis.</p>
+								<p class="large">Pico-Box has engineering & sales team in the vast city of Chongqing in western China, and all the products are manufactured in Shenzhen. Do not hesitate to contact us for business cooperation.</p>
 								<ul class="list-icons">
-									<li><i class="fa fa-map-marker pr-10"></i> One infinity loop, 54100</li>
-									<li><i class="fa fa-phone pr-10"></i> +00 1234567890</li>
-									<li><i class="fa fa-fax pr-10"></i> +00 1234567891 </li>
-									<li><i class="fa fa-envelope-o pr-10"></i> your@email.com</li>
+									<li><i class="fa fa-map-marker pr-10"></i> 2/F, BLK F, Heng Chang Rong Science Park, Shenzhen 518000, P. R. China</li>
+									<li><i class="fa fa-phone pr-10"></i> +86 1234567890</li>
+									<li><i class="fa fa-fax pr-10"></i> +86 1234567891 </li>
+									<li><i class="fa fa-envelope-o pr-10"></i> oversea@pico-box.com</li>
 								</ul>
 								<ul class="social-links">
 									<li class="facebook"><a target="_blank" href="https://www.facebook.com/pages/HtmlCoder/714570988650168"><i class="fa fa-facebook"></i></a></li>
@@ -632,7 +631,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="footer-content">
-								<form role="form" id="footer-form">
+								<form method="POST" role="form" id="footer-form" action="/feedback/123">
 									<div class="form-group has-feedback">
 										<label class="sr-only" for="name2">Name</label>
 										<input type="text" class="form-control" id="name2" placeholder="Name" name="name2" required>
@@ -649,6 +648,7 @@
 										<i class="fa fa-pencil form-control-feedback"></i>
 									</div>
 									<input type="submit" value="Send" class="btn btn-default">
+                                    {% csrf_token %}
 								</form>
 							</div>
 						</div>

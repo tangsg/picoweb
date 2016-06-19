@@ -19,10 +19,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 urlpatterns = [
-    #url(r'^$', 'lists.views.home_page', name='home'),
     url(r'^$', 'picoweb.views.index', name='index'),
-    #url(r'^lists/', include('lists.urls')),
-    #url(r'^pico/', include('picoweb.urls')),
+    url(r'^feedback/', 'picoweb.views.proc_feedback', name='proc_feedback'),
+    # url(r'^lists/', include('lists.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
 
