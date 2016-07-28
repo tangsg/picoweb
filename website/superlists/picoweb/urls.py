@@ -17,8 +17,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    #url(r'^(\d+)/$', 'lists.views.view_list', name='view_list'),
-    #url(r'^(\d+)/add_item$', 'lists.views.add_item', name='add_item'), 
-    #url(r'^new$', 'lists.views.new_list', name='new_list'),
-    #url(r'^contact', 'picoweb.views.contact', name='contact'),
+    url(r'^$', 'picoweb.views.index', name='pico_index'),
+    url(r'^products/(.+)', 'picoweb.views.product', name='product'),
+    url(r'^about-us$', 'picoweb.views.about', name='about'),
+    # url(r'^PSU-(.+)/$', 'picoweb.views.psu', name='psu'),
+    # url(r'^blog$', 'picoweb.views.blog', name='blog'),
+    # url(r'^(\d+)/$', 'lists.views.view_list', name='view_list'),
+    # url(r'^(\d+)/add_item$', 'lists.views.add_item', name='add_item'),
+    # url(r'^new$', 'lists.views.new_list', name='new_list'),
+    # url(r'^contact', 'picoweb.views.contact', name='contact'),
 ]
