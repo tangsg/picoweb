@@ -4,10 +4,23 @@ from django.http import HttpResponse
 from picoweb.models import Product, Photo, Download, Feedback
 
 
+def eng_or_chs(request):
+    return redirect('/en/')
+
+
 def index(request):
-    product_list = Product.objects.all()
+    # product_list = Product.objects.all()
     # print product_list
-    return render(request, 'index.html', {'product_list': product_list})
+    return render_to_response('index.html')
+
+
+def product(request, model):
+    print model
+    return render_to_response('product.html', {'model': model})
+
+
+def about(request):
+    return render_to_response('about.html')
 
 
 @csrf_exempt
